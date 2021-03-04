@@ -1,0 +1,54 @@
+﻿@model OrdersDTO
+ 
+
+<table class="table ">
+    <thead class="thead-dark">
+        <tr>
+           
+            <th>Opis Usterki</th>
+            <th>Model</th>
+            
+        </tr>
+
+
+    </thead>
+    <tbody>
+       
+       
+            <tr>
+               
+                <td>
+                    <p>@Model.Description</p>
+                </td>
+                <td>
+                    <p>@Model.Model</p>
+                </td>
+                
+            </tr>
+
+    
+    </tbody>
+</table>
+
+
+<form>
+    @using (Html.BeginForm())
+    {
+        <div class="form-group">
+            @Html.LabelFor(x => x.Repair, "Opis Naprawy")
+            @Html.TextAreaFor(x => x.Repair, new { @class = "form-control" })
+
+        </div>
+        <div class="form-group form-check">
+
+            @Html.CheckBoxFor(x => x.IsReady, new { @class = "form-check-input" })
+            @Html.LabelFor(x => x.IsReady, "Status naprawy")
+
+        </div>
+        <div class="form-group">
+            <button class="btn btn-secondary" type="submit">Zapisz zmiany</button>
+        </div>
+
+
+    }
+</form>

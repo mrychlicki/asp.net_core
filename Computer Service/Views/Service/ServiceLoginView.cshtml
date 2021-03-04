@@ -1,0 +1,56 @@
+﻿@model IEnumerable<OrdersDTO>
+
+
+
+
+<table class="table ">
+    <thead class="thead-dark">
+        <tr>
+            <th>Id</th>
+            <th>Opis Usterki</th>
+            <th>Model</th>
+            <th>Naprawa</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+
+
+    </thead>
+    <tbody>
+        @foreach (var element in Model)
+        {
+            <tr>
+                <td>
+                    <p>@Html.DisplayFor(e => element.Id)</p>
+                </td>
+                <td>
+                    <p>@Html.DisplayFor(e => element.Description)</p>
+                </td>
+                <td>
+                    <p>@Html.DisplayFor(e => element.Model)</p>
+                </td>
+                <td>
+                    <p>@Html.DisplayFor(e => element.Repair)</p>
+                </td>
+                <td>
+                    <p>@Html.DisplayFor(e => element.IsReady)</p>
+                </td>
+                <td>
+                    <button class="btn" value="@element.Id" id="btn" onclick="myFunc(this)">Edytuj</button>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+@section Scripts{
+    <script>
+        function myFunc(elem) {
+            window.location = "./EditOrder/" + elem.value;
+            console.log(elem.value);
+            
+        }
+       
+    </script>
+}

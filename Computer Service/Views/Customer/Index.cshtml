@@ -1,0 +1,18 @@
+﻿@model CustomerModel
+
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.Login, "Login")
+        @Html.TextBoxFor(x => x.Login, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Pass, "Hasło")
+        @Html.PasswordFor(x => x.Login, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Zaloguj</button>
+    </div>
+
+}
